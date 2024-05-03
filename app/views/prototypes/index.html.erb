@@ -1,0 +1,20 @@
+<main class="main">
+  <div class="inner">
+         <%# ログインしているときは以下を表示する %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、
+          <%# <%= link_to "ユーザー名さん", user_session_path, class: :greeting__link %>
+        <%= link_to "#{current_user.name}さん", user_path(current_user), class: :greeting__link%>
+        <%# <%= link_to "#{current_user.name}さん", user_session_path, class: :greeting__link %>
+      </div>
+    <% end %>
+           <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+           <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+      <%= render partial: 'prototype', collection: @prototypes %>
+      <%# <%= render partial: 'prototype', collection: @prototypes %>
+           <%# #変数使わない時、render使ったとしても複数形にしないと意味がない？ %>
+    </div>
+  </div>
+</main>
